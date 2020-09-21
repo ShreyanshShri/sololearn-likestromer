@@ -33,7 +33,7 @@ const sendStrom = async (email, password, id) => {
     await page.waitForSelector('#userCodes > div:nth-child(1) > div > div.codeDetails > div.actions > div > div.upvote')
 
     await page.evaluate(() => {
-        let elements = await page.$('.upvote');
+        let elements = await page.$('.upvote').toArray();
         console.log(elements)
         for (i = 0; i < elements.length; i++) {
           setTimeout(function(){
