@@ -2,7 +2,11 @@ const puppeteer = require('puppeteer')
 
 const sendStrom = async (email, password, id) => {
         const browser = await puppeteer.launch({
-            ignoreDefaultArgs: ['--disable-extensions'],
+          headless : true,
+          args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+          ],
         })
         const page = await browser.newPage();
 
@@ -20,6 +24,7 @@ const sendStrom = async (email, password, id) => {
             submitBtn.click(),
             page.waitForNavigation({ waitUntil: 'networkidle0' }),
         ])
+        console.log('Logged In')
 
         await page.goto(`https://sololearn.com/Profile/${id}`)
 
@@ -28,7 +33,7 @@ const sendStrom = async (email, password, id) => {
         await page.evaluate(() => {
             let elements = $('div.upvote').toArray();
             for (i = 0; i < elements.length; i++) {
-              setInterval(function(){
+              setTimeout(function(){
                 $(elements[i]).click();
               }, 1000)
             }
