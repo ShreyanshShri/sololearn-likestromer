@@ -1,7 +1,9 @@
 const puppeteer = require('puppeteer')
 
 const sendStrom = async (email, password, id) => {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            ignoreDefaultArgs: ['--disable-extensions'],
+        })
         const page = await browser.newPage();
 
         await page.goto('https://sololearn.com/users/login');
@@ -32,7 +34,7 @@ const sendStrom = async (email, password, id) => {
             }
          })
 
-         console.log('Strom Sent')
+        console.log('Strom Sent')
 
         await browser.close();
 }

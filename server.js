@@ -10,7 +10,10 @@ app.use(express.urlencoded({extended : false}))
 const email = process.env.EMAIL
 const password = process.env.PASSWORD
 
-sendStrom(email, password, '14155522').catch(err => console.log(err))
+app.get('/', (req, res) => {
+    sendStrom(email, password, '14155522').catch(err => console.log(err))
+    res.send('Hello')
+})
 
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Server running on port ${port}`))
