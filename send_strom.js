@@ -12,39 +12,43 @@ const sendStrom = async (email, password, id) => {
     })
     const page = await browser.newPage();
 
-    // await page.goto('https://sololearn.com/user/login');
+    await page.goto('https://sololearn.com/user/login');
 
-    // await page.waitForSelector('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
-    // const emailInput = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
-    // const passwordInput = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(2) > input')
-    // const submitBtn = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(2) > input')
+    await page.waitForSelector('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
+    const emailInput = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
+    const passwordInput = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(2) > input')
+    const submitBtn = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(2) > input')
 
-    // emailInput.type(email)
-    // passwordInput.type(password)
+    emailInput.type(email)
+    passwordInput.type(password)
     
-    // await Promise.all([
-    //     submitBtn.click(),
-    //     page.waitForNavigation({ waitUntil: 'networkidle0' }),
-    // ])
-    // console.log('Logged In')
+    await Promise.all([
+        submitBtn.click(),
+        page.waitForNavigation({ waitUntil: 'networkidle0' }),
+    ])
+    console.log('Logged In')
 
     await page.goto(`https://sololearn.com/Profile/${id}`)
 
-    await page.waitForSelector('#userCodes > div:nth-child(1) > div > div.codeDetails > div.actions > div > div.upvote')
+    // await page.waitForSelector('#userCodes > div:nth-child(1) > div > div.codeDetails > div.actions > div > div.upvote')
+
+    await page.waitForSelector('.upvote')
+    
 
     const likeBtns = await page.$$('.upvote')
 
     console.log(likeBtns)
 
-    // for(btn of likeBtns){
-    //   setTimeout( async() => {
-    //     try{
-    //       await btn.click()
-    //     } catch (err) {
-    //       console.log(err)
-    //     }
-    //   }, 1000)
-    // }
+    for(btn of likeBtns){
+      // setTimeout( async() => {
+      //   try{
+      //     await btn.click()
+      //   } catch (err) {
+      //     console.log(err)
+      //   }
+      // }, 1000)
+      await btn.click()
+    }
 
     console.log('Strom Sent')
 
