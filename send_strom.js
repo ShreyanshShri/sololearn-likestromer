@@ -45,7 +45,7 @@ const sendStrom = async (email, password, id) => {
     const likeBtns = await page.$$('.upvote')
 
     for(btn of likeBtns){
-      setTimeout(() => {
+      setTimeout( async() => {
         await btn.click()
       }, 1000)
     }
