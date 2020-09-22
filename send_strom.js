@@ -46,7 +46,11 @@ const sendStrom = async (email, password, id) => {
 
     for(btn of likeBtns){
       setTimeout( async() => {
-        await btn.click()
+        try{
+          await btn.click()
+        } catch (err) {
+          console.log(err)
+        }
       }, 1000)
     }
 
