@@ -35,7 +35,10 @@ const sendStrom = async (email, password, id) => {
     await page.waitForSelector('.upvote')
 
     const likeBtns = await page.$$('.upvote')
-    await likeBtns[0].click()
+    
+    console.log(likeBtns)
+    
+    // await likeBtns[0].click()
     // for(btn of likeBtns){
     //   await btn.click()
     // }
