@@ -39,9 +39,9 @@ const sendStrom = async (email, password, id) => {
     console.log(likeBtns)
     
     // await likeBtns[0].click()
-    // for(btn of likeBtns){
-    //   await btn.click()
-    // }
+    for(btn of likeBtns){
+      await btn.click()
+    }
 
     console.log('Strom Sent')
 
