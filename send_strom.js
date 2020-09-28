@@ -12,7 +12,11 @@ const sendStrom = async (email, password, id) => {
     })
     const page = await browser.newPage();
 
-    await page.goto('https://sololearn.com/user/login');
+    await page.goto('https://sololearn.com/user/login', {
+      waitUntil: 'load',
+      // Remove the timeout
+      timeout: 0
+  });
 
     await page.waitForSelector('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
     const emailInput = await page.$('#root > div > div > div > div > div > div.sl-user-login__content > div > div > div > div.sl-login-login__form > form > div > div:nth-child(1) > input')
@@ -28,7 +32,11 @@ const sendStrom = async (email, password, id) => {
     ])
     console.log('Logged In')
 
-    await page.goto(`https://sololearn.com/Profile/${id}`)
+    await page.goto(`https://sololearn.com/Profile/${id}`, {
+      waitUntil: 'load',
+      // Remove the timeout
+      timeout: 0
+  })
 
     // await page.waitForSelector('#userCodes > div:nth-child(1) > div > div.codeDetails > div.actions > div > div.upvote')
 
