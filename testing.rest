@@ -1,7 +1,7 @@
-POST http://localhost:3000/
+POST https//localhost:3000/
 content-type: application/json
 
 {
-    "userId": "7920723",
-    "password": "WantSomeLikeStroms-_-"
+    "userId": "<userId of user to whom strom will be sent>",
+    "password": "<password that you created in env>"
 }
