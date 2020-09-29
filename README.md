@@ -1,7 +1,7 @@
 # sololearn-likestromer
 A SoloLearn Bot that sends like stroms to a specific user
 
-### Usage
+### Setting Up the Project
 #### install dependencies
 ```
 npm install
@@ -10,7 +10,7 @@ npm install
 #### Pre requrements
 Before you start you need to create a .env file and fill all required feilds from .env_sample file
 
-#### run server
+#### Running server
 ```
 node server
 ```
@@ -31,4 +31,4 @@ You can use postman as well
 ### The actual Project is deployed on 
 ## https://sololearn-likestromer.herokuapp.com
 
-#Happy Learning :)
+# Happy Learning :p
