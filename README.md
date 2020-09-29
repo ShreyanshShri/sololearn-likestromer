@@ -29,6 +29,6 @@ You can use testing.rest file as well but make sure that you have installed rest
 You can use postman as well
 
 ### The actual Project is deployed on 
-## sololearn-likestromer.herokuapp.com
+## https://sololearn-likestromer.herokuapp.com
 
 #Happy Learning :)
