@@ -26,9 +26,10 @@ app.post('/', (req, res) => {
             }
         }
     }
-    if(password.length > 9 || password.length < 5) {
+    if(userId.length > 9 || userId.length < 5) {
         return res.status(400).json({message: 'Invalid UserId'})
     }
+    console.log(userId.length)
 
     // calling the sendstrom func only if pass matches
     try {
