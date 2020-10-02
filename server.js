@@ -11,6 +11,7 @@ app.use(cors())
 
 // main route
 app.post('/', (req, res) => {
+    console.log('Got a request')
     const {userId, password} = req.body
     
     if(password !== process.env.AUTH_PASSWORD){
@@ -29,7 +30,6 @@ app.post('/', (req, res) => {
     if(userId.length > 9 || userId.length < 5) {
         return res.status(400).json({message: 'Invalid UserId'})
     }
-    console.log(userId.length)
 
     // calling the sendstrom func only if pass matches
     try {
