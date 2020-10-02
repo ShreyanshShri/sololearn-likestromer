@@ -45,8 +45,22 @@ const sendStrom = async (id) => {
 
     // iterating over like btns and hitting them in every 4000 ms
     for(btn of likeBtns){
-      await btn.click()
-      await page.waitForTimeout(4000)
+
+      // checking if code is already liked or not
+      const isActive = await page.evaluate(el => {
+        let hasActiveClass = false;
+        let classes = el.classList
+          if(classes[1] === 'active'){
+            hasActiveClass = true;
+          }
+        return hasActiveClass
+      }, btn)
+
+      // clicking btn only if it is not already clicked
+      if(!isActive){
+        await btn.click()
+        await page.waitForTimeout(4000)
+      }
     }
 
     console.log('Strom Sent...')
